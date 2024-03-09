@@ -1,50 +1,59 @@
-/* styles.css */
-
-/* Styles généraux */
-body, ul {
+body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-/* En-tête */
-header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
-}
-
-/* Barre de navigation */
-nav {
-    background-color: #444;
-    text-align: center;
-}
-
-nav ul {
+.menu {
     list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline-block;
-    margin-right: 1rem;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #fff;
-}
-
-/* Contenu principal */
-main {
-    padding: 2rem;
-}
-
-/* Pied de page */
-footer {
-    background-color: #333;
-    color: #fff;
     text-align: center;
-    padding: 1rem;
+    font-size: 20;
+    font-weight: bold;
+}
+
+.menu li {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: gray;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+    
+}
+
+.entreprise-presentation, .products-services {
+    text-align: center;
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+}
+
+.product {
+    margin-bottom: 20px;
+}
+
+.product img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1 {
+font-size: 40;
+color: blue;
+font-style: italic;
+font-weight: bold;
+}
+
+p {
+    font-size: 16;
 }
