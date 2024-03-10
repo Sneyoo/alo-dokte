@@ -2,52 +2,205 @@
 =            Styles généraux             =
 =============================================*/
 body, ul {
-    font-family: Arial, sans-serif;
+    font-family: helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
+    
+}
+p{
+    line-height: 2;
+    color: #7f8c8d;
+}
+.heading--style{
+    text-align: center;
+    position: relative;
+  }
+  .heading--style::after{
+    content: "";
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 4px;
+    background-color: #5897b4;
+    width: 80px;
+  }
+ 
+  .card{
+
+    transition: all 0.5s;
+    border-radius: 35px 5px 35px 5px;
+    box-shadow: 1px 16px 22px -16px rgba(0, 0, 0, 0.222);
+    cursor: pointer;
+
+    width: calc(50% - 25px);
+    box-sizing: border-box;
+    padding: 40px;
+    background-color: #f6f6f6;
+
+    border-bottom: 3px solid #5897b4;
+    border-top: 3px solid #5897b4;
+  }
+
+  .card:hover {
+    border-bottom: 3px solid #9be5aa;
+    border-top: 3px solid #9be5aa;
+    animation: shake 0.8s;
+  }
+    
+    @keyframes shake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(0eg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+  }
+  @media (max-width: 800px) {
+    .card {
+        width: 100%;
+    }
 }
 
 /*=============================================
 =            En-tête              =
 =============================================*/
 header {
-    background-color: #333;
-    color: #fff;
+    background-color: #fff;
     text-align: center;
     padding: 1rem;
 }
-
+header img {
+    width: 120px;
+}
 /*=============================================
 =           Barre de navigation              =
 =============================================*/
 nav {
-    background-color: #444;
-    text-align: center;
-    min-height: 60px;
+    background-color: #5897b4;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline-block;
-    margin-right: 1rem;
-}
-
-nav ul li a {
+nav a {
     text-decoration: none;
     color: #fff;
+    font-weight: bold;
+    margin-right: 1rem;
+    padding:10px 15px;
+    border-radius:2px;
 }
-
+nav a:hover {
+    -webkit-box-shadow: 0 0 0 1px #f6f6f6;
+    -moz-box-shadow: 0 0 0 1px #f6f6f6;
+    box-shadow: 0 0 0 1px #f6f6f6;
+  }
+/*=============================================
+=                  Carousel              =
+=============================================*/
+.carousel {
+    position: relative;
+    height: 600px;
+    border-bottom: 5px solid #9be5aa;
+  }
+  .carousel__img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    transition: all 0.3s;
+  }
+  .carousel__counter {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 18px;
+    z-index: 1000;
+  }
+  .carousel__button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    color: white;
+    transition: all 0.3s;
+    opacity: 0.5;
+    cursor: pointer;
+  }
+  .carousel__button:hover {
+    opacity: 1;
+  }
+  .carousel__button--prev {
+    left: 10px;
+  }
+  .carousel__button--next {
+    right: 10px;
+  }
 /*=============================================
 =           Contenu principal              =
 =============================================*/
-main {
-    padding: 2rem;
-}
 
+
+/*=============================================
+=            alodokte            =
+=============================================*/
+.alodokte {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 50px; 
+      
+}
+.alodokte__img{
+    max-height: 120px;
+    object-fit: cover;  
+    border-radius: 50%;
+}
+.alodokte__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+    
+.alodokte__svg {
+    width: 60px;
+}
+.alodokte__paragraph{
+    margin-top: 40px;
+}
+.alodokte__button {
+    margin: auto;
+    box-shadow: 1px 16px 22px -16px #5897b4;
+    border-radius:30px;
+    border:1px solid #5897b4;
+    display:inline-block;
+    cursor:pointer;
+    font-size:17px;
+    padding:12px 30px;
+    text-decoration:none;
+    transition:all 0.5s;
+    background-color: #5897b4;
+    color: #ffffff;
+}
+.alodokte__button:hover {
+      
+   background-color: #ffffff;
+   color:#5897b4;
+}
+.alodokte__button:active {
+    position:relative;
+    top:1px;
+}
+  
 /*=============================================
 =                  Pied de page              =
 =============================================*/
