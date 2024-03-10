@@ -31,7 +31,6 @@ p{
     transition: all 0.5s;
     border-radius: 35px 5px 35px 5px;
     box-shadow: 1px 16px 22px -16px rgba(0, 0, 0, 0.222);
-    cursor: pointer;
 
     width: calc(50% - 25px);
     box-sizing: border-box;
@@ -45,21 +44,8 @@ p{
   .card:hover {
     border-bottom: 3px solid #9be5aa;
     border-top: 3px solid #9be5aa;
-    animation: shake 0.8s;
   }
     
-    @keyframes shake {
-    0% { transform: rotate(0deg); }
-    25% { transform: rotate(5deg); }
-    50% { transform: rotate(0eg); }
-    75% { transform: rotate(-5deg); }
-    100% { transform: rotate(0deg); }
-  }
-  @media (max-width: 800px) {
-    .card {
-        width: 100%;
-    }
-}
 
 /*=============================================
 =            En-tête              =
@@ -103,7 +89,17 @@ nav a:hover {
     position: relative;
     height: 600px;
     border-bottom: 5px solid #9be5aa;
-  }
+    width: 100%;
+}
+.carousel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+}
   .carousel__img {
     width: 100%; 
     height: 100%; 
@@ -112,6 +108,7 @@ nav a:hover {
     top: 0; 
     left: 0; 
     transition: all 0.3s;
+
   }
   .carousel__counter {
     position: absolute;
@@ -122,13 +119,24 @@ nav a:hover {
     font-size: 18px;
     z-index: 1000;
   }
+
+  .carousel__contact {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 18px;
+    z-index: 1000;
+    font-weight: bold;
+  }
+
   .carousel__button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background-color: transparent;
     border: none;
-    font-size: 2rem;
     color: white;
     transition: all 0.3s;
     opacity: 0.5;
@@ -139,9 +147,11 @@ nav a:hover {
   }
   .carousel__button--prev {
     left: 10px;
+    z-index: 100000;
   }
   .carousel__button--next {
     right: 10px;
+    z-index: 100000;;
   }
 /*=============================================
 =           Contenu principal              =
@@ -158,7 +168,7 @@ nav a:hover {
     flex-direction: column;
     gap: 40px;
     padding: 50px; 
-      
+    padding-bottom: 150px; 
 }
 .alodokte__img{
     max-height: 120px;
@@ -182,7 +192,7 @@ nav a:hover {
     box-shadow: 1px 16px 22px -16px #5897b4;
     border-radius:30px;
     border:1px solid #5897b4;
-    display:inline-block;
+    display:none;
     cursor:pointer;
     font-size:17px;
     padding:12px 30px;
@@ -190,6 +200,7 @@ nav a:hover {
     transition:all 0.5s;
     background-color: #5897b4;
     color: #ffffff;
+    margin-top: 20px;
 }
 .alodokte__button:hover {
       
@@ -210,4 +221,30 @@ footer {
     color: #fff;
     text-align: center;
     padding: 1rem;
+}
+
+@media (max-width: 800px) {
+    .card {
+        width: 100%;
+    }
+
+    .alodokte__p{
+        display: none;
+    }
+    .alodokte__button{
+        display:inline-block;
+    }
+    header img {
+        width: 70px;
+    }
+    h1 {
+        font-size: 20px;
+    }
+    .carousel
+    {
+        max-height: 400px;
+    }
+    .nav__contact{
+        display: none;
+    }
 }
