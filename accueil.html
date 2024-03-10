@@ -19,41 +19,167 @@
         <a href="contact.html">Contact</a>  
     </nav>
 
-
-    <div class="banner">
-        <img src="images/cliniquesite.jpg" alt="Banner">
-    </div>
+    <div id="carousel-home"></div>
 
     <main>
-        <section>
-            <h2>Nos Services</h2>
-            <p>Alo doktè vous offre les services suivants :</p>
-        </section>
 
-        <section>
-            <ul>
-                <li><b>Prise de rendez-vous en ligne :</b> Vous pouvez choisir le médecin, 
-                    la clinique ou l’hôpital de votre choix, selon votre localisation, 
-                    votre spécialité et votre budget. Vous pouvez voir les disponibilités 
-                    et les tarifs de chaque partenaire médical et réserver votre 
-                    rendez-vous en quelques clics. Vous pouvez payer en ligne par 
-                    Moncash ou par carte crédit.</li>
-                <li><b>Téléconsultation :</b> Vous pouvez communiquer avec votre médecin à distance, 
+        <section class="alodokte">
+            <h2 class="alodokte__heading heading--style">Bienvenue sur Alo doktè</h2>
+            <p class="alodokte__paragraph">
+                Une plateforme qui vous permet de prendre rendez-vous en ligne avec des médecins, 
+                cliniques et hôpitaux en Haïti. Que vous ayez besoin d'une consultation médicale, d'un examen, 
+                d'une ordonnance ou d'un suivi, Alo doktè vous met en relation avec des professionnels de la santé qualifiés 
+                et disponibles. Avec Alo doktè, vous gagnez du temps, d e l'argent et de la tranquillité d'esprit..
+            </p>
+             <div class="alodokte__container">
+              <div class="alodokte__service1 card">
+                <img class="alodokte__img" src="images/rendezvous.jpeg" alt="rendez vous en ligne">
+                <h3>Prise de rendez-vous en ligne</h3>
+                <p>
+                    Vous pouvez choisir le médecin, la clinique ou l'hôpital de votre choix, 
+                    selon votre localisation, votre spécialité et votre budget. 
+                    Vous pouvez voir les disponibilités et les tarifs de chaque partenaire médical 
+                    et réserver votre rendez-vous en quelques clics. Vous pouvez payer en ligne par Moncash ou par carte crédit.                
+                </p>
+              </div>
+              <div class="alodokte__service2 card">
+                <img class="alodokte__img" src="images/teleconsultation.jpeg" alt="teleconsultaion">
+                <h3>Téléconsultation </h3>
+                <p>
+                    Vous pouvez communiquer avec votre médecin à distance, 
                     par téléphone ou par vidéo, pour obtenir un diagnostic, 
-                    un conseil ou une orientation. Vous pouvez aussi recevoir votre ordonnance 
-                    par e-mail ou par SMS.</li>
-                <li><b>Annuaire des professionnels et des établissements de santé :</b> 
+                    un conseil ou une orientation. Vous pouvez aussi recevoir 
+                    votre ordonnance par e-mail ou par SMS.                
+                </p>
+              </div>
+              <div class="alodokte__service3 card">
+                <img class="alodokte__img" src="images/urgence.jpeg" alt="urgence">
+                <h3>Service d'urgence</h3>
+                <p>
+                    Services disponibles 24 heures sur 24 et 7 jours sur 7 pour répondre 
+                    à vos besoins urgents. Que ce soit pour une situation médicale, 
+                    un incident de sécurité ou toute autre urgence, vous pouvez compter sur 
+                    nos services pour vous aider en cas de besoin.                 
+                </p>
+              </div>
+              <div class="alodokte__service4 card">
+                <img class="alodokte__img" src="images/annuaire.jpeg" alt="annuaire">
+                <h3>Annuaire des établissements de santé </h3>
+                <p>
                     Vous pouvez consulter le profil de chaque partenaire médical, 
                     avec ses coordonnées, ses diplômes, ses avis et ses photos. 
-                    Vous pouvez aussi localiser chaque partenaire médical sur 
-                    une carte Google Maps interactive</li>
-            </ul>
+                    Vous pouvez aussi localiser chaque partenaire médical sur une 
+                    carte Google Maps interactive.                
+                </p>
+              </div>
+    
+             </div>
+             <a href="#" class="alodokte__button">Contacter nous</a>
         </section>
     </main>
 
     <footer>
         <p>© 2024 Alo Doktè. Tous droits réservés.</p>
     </footer>
+    <script>
     
+        /*=============================================
+        =            Section comment block            =
+        =============================================*/
+        document.addEventListener("DOMContentLoaded", function() {
+      window.addEventListener("scroll", function() {
+        var winTop = window.pageYOffset;
+        if (winTop >= 30) {
+          document.body.classList.add("sticky-header");
+        } else {
+          document.body.classList.remove("sticky-header");
+        } 
+      });
+    });     
+        /*=====  End of Section comment block  ======*/
+        
+    
+    /*=============================================
+    =            Carousel            =
+    =============================================*/
+    
+    
+    let photos = [];
+    for (let index = 1; index < 21; index++) {
+        const element = "carousel/image"+[index]+".jpeg";
+        photos.push(element);
+    }
+
+      // Créer un élément DOM pour le carrousel
+      let carousel = document.createElement("section");
+      carousel.className = "carousel";
+    
+      // Créer un élément DOM pour l'image du carrousel
+      let carouselImg = document.createElement("img");
+      carouselImg.className = "carousel__img";
+      carousel.appendChild(carouselImg);
+    
+      // Créer un élément DOM pour le bouton précédent
+      let prevButton = document.createElement("button");
+      prevButton.className = "carousel__button carousel__button--prev";
+      prevButton.innerHTML = '<img src="carousel/icone_carousel_prev.svg" alt="icone_carousel_prev" />';
+      carousel.appendChild(prevButton);
+    
+      // Créer un élément DOM pour le bouton suivant
+      let nextButton = document.createElement("button");
+      nextButton.className = "carousel__button carousel__button--next";
+      nextButton.innerHTML = '<img src="carousel/icone_carousel_next.svg" alt="icone_carousel_next" />';
+      carousel.appendChild(nextButton);
+    
+      // Créer un élément DOM pour le compteur
+      let counter = document.createElement("p");
+      counter.className = "carousel__counter";
+      carousel.appendChild(counter);
+    
+      // Ajouter le carrousel au document
+      document.querySelector("#carousel-home").appendChild(carousel);
+    
+      // Définir l'index de la photo courante
+      let index = 0;
+    
+      // Définir la fonction pour afficher la photo correspondant à l'index
+      function showPhoto() {
+        carouselImg.src = photos[index];
+        carouselImg.alt = `Photo ${index + 1} du logement`;
+        counter.textContent = `${index + 1} / ${photos.length}`;
+      }
+    
+      // Définir la fonction pour passer à la photo suivante
+      function nextSlide() {
+        index = (index + 1) % photos.length;
+        showPhoto();
+      }
+    
+      // Définir la fonction pour passer à la photo précédente
+      function prevSlide() {
+        index = (index - 1 + photos.length) % photos.length;
+        showPhoto();
+      }
+    
+      // Ajouter les écouteurs d'événements aux boutons
+      nextButton.addEventListener("click", nextSlide);
+      prevButton.addEventListener("click", prevSlide);
+    
+      // Afficher la première photo
+      showPhoto();
+    // Définir la fonction pour faire défiler le carrousel automatiquement
+    function autoSlide() {
+      setInterval(nextSlide, 5000); // Appeler la fonction nextSlide toutes les 5 secondes
+    }
+    
+    // Appeler la fonction autoSlide une fois le document chargé
+    window.addEventListener("load", autoSlide);
+    
+    /*=====  End of Carousel  ======*/
+    
+    
+    
+      </script>
 </body>
 </html>
+
